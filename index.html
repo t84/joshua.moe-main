@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobetsu | Joshua</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-text: #e5e5e5;
+            --secondary-text: #a0a0a0;
+            --background-dark: #000000;
+            --background-gradient-start: #0a0a0a;
+            --card-bg: rgba(20, 20, 20, 0.6);
+            --border-color: #2b2b2b;
+            --link-bg: rgba(30, 30, 30, 0.7);
+            --link-hover-bg: rgba(45, 45, 45, 0.85);
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(ellipse at top, #0d1117 0%, #010409 100%);
+            color: var(--primary-text);
+            background-attachment: fixed;
+        }
+
+        .star {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 2px;
+            height: 2px;
+            animation: twinkle 4s infinite ease-in-out;
+            box-shadow: 0 0 4px rgba(188, 222, 255, 0.5);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.9; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.9); }
+        }
+
+        .glow {
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+        }
+
+        .card-container {
+            background: rgba(25, 25, 25, 0.5);
+            border-radius: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 3rem 2.5rem;
+            transform-style: preserve-3d;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .card-container:hover {
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4), 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-button {
+            background: rgba(40, 40, 40, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            color: var(--primary-text);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .link-button:hover {
+            background: rgba(60, 60, 60, 0.85);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        hr {
+            border-color: #2c333c;
+            opacity: 0.5;
+        }
+
+        .title-name {
+            font-size: 3.5rem;
+        }
+        .title-tag {
+            font-size: 2.5rem;
+        }
+        @media (min-width: 768px) {
+            .title-name {
+                font-size: 4rem;
+            }
+            .title-tag {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen relative px-4 text-center">
+
+    <div class="absolute inset-0 overflow-hidden">
+        <script>
+            function createStars() {
+                const numStars = window.innerWidth > 768 ? 150 : 80;
+                for (let i = 0; i < numStars; i++) {
+                    const star = document.createElement('div');
+                    star.classList.add('star');
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.opacity = `${Math.random() * 0.8 + 0.2}`;
+                    star.style.transform = `scale(${Math.random() * 1.5})`;
+                    star.style.animationDelay = `${Math.random() * 4}s`;
+                    document.body.appendChild(star);
+                }
+            }
+            document.addEventListener('DOMContentLoaded', createStars);
+        </script>
+    </div>
+
+    <div id="card" class="relative z-10 card-container max-w-xl w-full space-y-12">
+
+        <div>
+            <h1 class="font-extrabold glow mb-2 tracking-tighter">
+                <span class="title-name block">Joshua</span>
+                <span class="text-gray-400 text-3xl font-normal block mt-1">/ Mobetsu</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl mt-4">I enjoy watching anime, playing games, and stargazing.</p>
+        </div>
+
+        <hr class="border-t">
+
+        <section class="space-y-6">
+            <h2 class="text-3xl font-bold glow">Links</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://anilist.co/user/Joshua/" target="_blank" class="link-button">AniList</a>
+                <a href="https://github.com/mobetsu" target="_blank" class="link-button">GitHub</a>
+                <a href="https://x.com/mobetsu" target="_blank" class="link-button">X (Twitter)</a>
+            </div>
+        </section>
+
+        <hr class="border-t">
+
+        <section class="space-y-6">
+            <h2 class="text-3xl font-bold glow">Contact</h2>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="mailto:me@joshua.moe" class="link-button">
+                    Email
+                </a>
+                <a href="https://discord.com/users/442142462857707520" target="_blank" class="link-button">
+                    Discord
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="mt-16 text-gray-500 text-sm glow relative z-10 text-center">
+        &copy; <span id="year"></span> mobetsu
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const card = document.getElementById('card');
+        const maxTilt = 5; 
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const tiltY = ((e.clientX - centerX) / (rect.width / 2)) * maxTilt;
+            const tiltX = -((e.clientY - centerY) / (rect.height / 2)) * maxTilt;
+
+            card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+        });
+    </script>
+</body>
+</html>
